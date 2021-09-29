@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const Pizza = require('./Pizza');
 const Comment = require('./Comment');
 
 const PizzaSchema = new Schema({

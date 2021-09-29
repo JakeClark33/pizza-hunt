@@ -2,12 +2,13 @@ const { Pizza } = require('../models');
 
 const pizzaController = {
     // get all the pizzas
-    getAllPizza(req, res) {
+    getAllPizzas(req, res) {
         Pizza.find({})
+        .populate({
+          path: 'comments',
+          select: '-__v'
+        })
         .then(dbPizzaData => res.json(dbPizzaData))
-        .catch(err => {
-            console.log(err);
-        });
     },
     //get one pizza by id
     getPizzaById({params}, res) {
